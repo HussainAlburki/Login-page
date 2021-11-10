@@ -69,7 +69,7 @@
        var SCsformat = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
        
 //   ......checking if the password has any special character by checking the "format" string which has all the specai characters. /\d/ checking if it contains any integer 
-        if(format.test(pass) && /\d/.test(pass) ){    
+        if(SCsformat.test(pass) && /\d/.test(pass) ){    
           //for saving the information in JS array.
           usernames[i]=name;
           passwords[i]=pass;
