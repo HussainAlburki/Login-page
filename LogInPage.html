@@ -6,10 +6,10 @@
     
  <h1 style="text-align: center; color: cadetblue;font-size: 50px; padding-top: 30px;">Welcome to the login page</h1>
 
-<!--link rel="stylesheet" style type = "text/css" href="CssEx.css">  -->  
+<!--Using internal CSS to control the style  -->  
     <style>
 
-       /*using (CSS class here to control everything in thr body )*/
+       /*using (CSS class here to control everything in the body )*/
    .BodyChange{
     background-color: #1e1c20;
     background-attachment: fixed;
@@ -32,25 +32,25 @@
   .Form
   {
   padding-top: 80px;
-  font-size: 15px;
-  
-  
-}  
+  font-size: 20px;
+
+  }  
 
     </style>
     </head>
     
  <body  class="BodyChange">
      
+    <!--using form here for Login. method post is used to not show the data entered publically in the URL-->
         
     <form id="Main" class="Form" method="post">
-     <h1 id="h1">Login </h1>
+     <h1 id="h1">Login</h1>
      <input id="userN" style="width: 250px;height: 25px;background-color:rgb(219, 219, 219);" type="text"
-     name="userN" placeholder="Username" required="req" /><br><br>
+     placeholder="Username" required="req" /><br><br>
      <input id="userP" style="width: 250px;height: 25px; background-color:rgb(219, 219, 219);" type ="password" 
-     name= "userP" placeholder="Password" required="req" /><br><br>
-      <button  style="width: 100px;height: 30px; background-color: rgb(85, 85, 85);;color: beige; font-weight: bold; font-size: 15px;" 
-       onclick="CheckLogIng()" type="submit" >Let me in</button>
+     placeholder="Password" required="req" /><br><br>
+      <button  style="width: 150px;height: 30px; background-color: rgb(85, 85, 85);;color: beige; font-weight: bold; font-size: 15px;" 
+       onclick="CheckLogIng()" type="button" >Let me in</button>
     </form>  
 
 
@@ -58,60 +58,38 @@
      var i=0;
      var usernames=[];
      var passwords=[];
-     var space="";
-    
-  /*
-function test()
-{
-  window.location.href="https://moodle.atilim.edu.tr/course/view.php?id=10606";
-
-
-}
-*/
+ 
      function CheckLogIng()
      {
-       var name =document.getElementById('userN').value;
-       var pass=document.getElementById('userP').value;
-
-       var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+       //getting the input values by the Id names.
+       var name =document.getElementById("userN").value;
+       var pass=document.getElementById("userP").value;
+      
+     
+       var SCsformat = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
        
-//checking if the password has any special character by checking the "format" string which has all the specai characters. /\d/ checking if it contains any integer 
-        if(format.test(pass) && /\d/.test(pass) ){
+//   ......checking if the password has any special character by checking the "format" string which has all the specai characters. /\d/ checking if it contains any integer 
+        if(format.test(pass) && /\d/.test(pass) ){    
+          //for saving the information in JS array.
           usernames[i]=name;
           passwords[i]=pass;
-          
-          window.location.href = "https://moodle.atilim.edu.tr/course/view.php?id=10606";
-          
-        
-            /* window.location ='https://moodle.atilim.edu.tr/my/';
-      
-        document.writeln("<p style='color:yellow;background-color:black;padding:30px; font-size:75px; font-weight: bold;text-align: center;'>Successful Log In </p>"
-        +space+"<p style= 'color:blue;padding-top:30px; font-size:35px; font-weight:bold;text-align: center;'>Hi "
-        +usernames[i]+" Welcome to our page.</p>" 
-        +space+"<p style= 'color:green;text-align: center;font-size:35px; font-weight:bold;'> You have logged in successfully.</p>");
-       
-        location.reload();
-          i++;   
-          */
+          i++;
+
+          // directing to a HTML conten page ..
+          location.href="file:///C:/Users/user/.vscode/Content.html";
+ 
         }
-        else
+         else
         {
-          alert("Access Denied!!\nEnsure that you have at least a special character and a number.");
+          //giving an error message otherwise
+          alert("Access Denied!!\nEnsure that you have at least a special character and a number.</p>");
         }
-              
-
-     }    
-       
-      
-
-
+  
+      }// end of the function
+        
+           
      </script>
 
-
- 
     </body>
-
-    
-
 
 </html>
